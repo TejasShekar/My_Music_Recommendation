@@ -2,3 +2,13 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.list {
+  cursor: pointer;
+  list-style-type: none;
+  display: inline;
+  border: 1px solid grey;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+}
