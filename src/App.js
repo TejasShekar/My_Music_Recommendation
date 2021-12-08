@@ -18,19 +18,9 @@ const popSongs = [
     src: "https://www.youtube.com/watch?v=FG9M0aEpJGE"
   },
   {
-    name: "Sam Smith - How Do You Sleep?",
-    rating: "4.0",
-    src: "https://www.youtube.com/watch?v=PmYypVozQb4"
-  },
-  {
     name: "Sam Smith - Writing's On The Wall",
     rating: "4.9",
     src: "https://www.youtube.com/watch?v=8jzDnsjYv9A"
-  },
-  {
-    name: "The Vamps - Just My Type",
-    rating: "4.3",
-    src: "https://www.youtube.com/watch?v=Els_GCWuJVk"
   },
   {
     name: "Ke$ha - TiK ToK",
@@ -41,17 +31,6 @@ const popSongs = [
     name: "Ashe - Moral of the Story",
     rating: "4.7",
     src: "https://www.youtube.com/watch?v=WQq98YPV8yk"
-  },
-  {
-    name: "Charlie Puth – I Warned Myself",
-    rating: "5.0",
-    src: "https://www.youtube.com/watch?v=wjIes1eGAw4"
-  },
-  {
-    name:
-      "Charlotte Lawrence, Nina Nesbitt & Sasha Sloan - Girls Just Wanna Have Fun",
-    rating: "4.1",
-    src: "https://www.youtube.com/watch?v=YJYHzxONKGI"
   }
 ];
 
@@ -161,9 +140,9 @@ export default function App() {
   }
   return (
     <div className="App">
-      <h1>My recommendations</h1>
-      <h3> Click one of the tabs below</h3>
-      <ul>
+      <h1>My Music recommendations</h1>
+      <h3> Click one of the genres below</h3>
+      <ul className="genres">
         <li className="list" onClick={popHandler}>
           Pop
         </li>
@@ -177,7 +156,30 @@ export default function App() {
           Indie
         </li>
       </ul>
-      <div className="container"></div>
+      <div>
+        <hr />
+        {genre.map((song) => {
+          return (
+            <div className="song">
+              <p>
+                <strong className="song-name">{song.name}</strong>
+              </p>
+              <p>
+                <strong>Rating - </strong>
+                <em>{song.rating}/5 </em>
+              </p>
+              <p className="song-link">
+                <a href={song.src} target="_blank">
+                  Listen on Youtube
+                  <span role="img" aria-label="heart-and-music-emoji">
+                    ❤🎵
+                  </span>
+                </a>
+              </p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
