@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Fuzzy Bubbles", cursive;
+}
+
+.App {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 1rem auto;
+  color: rgb(161, 97, 245);
+}
+
+h3 {
+  text-align: center;
+  margin: 1rem auto;
+  padding-bottom: 1rem;
+}
+
+ul {
+  padding-bottom: 1rem;
+}
+
+hr {
+  margin: 1rem auto;
+  max-width: 80%;
+}
+
+.list {
+  cursor: pointer;
+  list-style-type: none;
+  display: inline;
+  border: 3px solid;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.song {
+  list-style: none;
+  padding: 1rem;
+  border: 1px solid grey;
+  width: 70%;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(126, 56, 218);
+}
+
+.songs-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
