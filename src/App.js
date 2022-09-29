@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles.css";
 import React, { useState } from "react";
 
 const popSongs = [
@@ -124,43 +124,56 @@ const indieSongs = [
 ];
 
 export default function App() {
-  const [genre, setGenre] = useState(popSongs);
+  const [currentGenre, setGenre] = useState({ genreName: "", songsList: [] });
 
   function popHandler() {
-    setGenre(popSongs);
+    setGenre((prev) => ({ ...prev, genreName: "Pop", songsList: popSongs }));
   }
   function hiphopHandler() {
-    setGenre(hiphopSongs);
+    setGenre((prev) => ({ ...prev, genreName: "Hip Hop", songsList: hiphopSongs }));
   }
   function edmHandler() {
-    setGenre(edmSongs);
+    setGenre((prev) => ({ ...prev, genreName: "EDM", songsList: edmSongs }));
   }
   function indieHandler() {
-    setGenre(indieSongs);
+    setGenre((prev) => ({ ...prev, genreName: "Indie", songsList: indieSongs }));
   }
+
   return (
     <div className="App">
       <h1>My Music recommendations</h1>
-      <h3> Click one of the genres below</h3>
       <ul className="genres">
-        <li className="list" onClick={popHandler}>
+        <li
+          className={currentGenre.genreName === "Pop" ? "list active" : "list"}
+          onClick={popHandler}
+        >
           Pop
         </li>
-        <li className="list" onClick={hiphopHandler}>
+        <li
+          className={currentGenre.genreName === "Hip Hop" ? "list active" : "list"}
+          onClick={hiphopHandler}
+        >
           Hip Hop
         </li>
-        <li className="list" onClick={edmHandler}>
+        <li
+          className={currentGenre.genreName === "EDM" ? "list active" : "list"}
+          onClick={edmHandler}
+        >
           EDM
         </li>
-        <li className="list" onClick={indieHandler}>
+        <li
+          className={currentGenre.genreName === "Indie" ? "list active" : "list"}
+          onClick={indieHandler}
+        >
           Indie
         </li>
       </ul>
       <hr />
+      {currentGenre.songsList.length === 0 && <h3>Select one of the genres above !</h3>}
       <div className="songs-list">
-        {genre.map((song) => {
+        {currentGenre.songsList.map((song) => {
           return (
-            <div className="song">
+            <div className="song" key={song.name}>
               <p>
                 <strong className="song-name">{song.name}</strong>
               </p>
